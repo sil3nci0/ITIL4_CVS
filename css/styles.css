@@ -281,6 +281,17 @@ a:hover{text-decoration:underline}
   .video {
     border-radius: 8px;
   }
+  
+  /* Formularios responsive para tablet */
+  .form {
+    width: 100%;
+  }
+  
+  .input, .select, .textarea, .button {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px; /* Evita zoom en iOS */
+  }
 }
 
 /* Móviles pequeños (hasta 400px) - Cumple requisito de anchura mínima */
@@ -344,6 +355,19 @@ a:hover{text-decoration:underline}
   /* Variables responsive - espaciado reducido en móviles */
   :root {
     --space: clamp(8px, 2vw, 16px);
+  }
+  
+  /* Formularios responsive para móviles pequeños */
+  .form {
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .input, .select, .textarea, .button {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important; /* Evita zoom en iOS */
+    padding: 12px !important; /* Más área táctil */
   }
 }
 
