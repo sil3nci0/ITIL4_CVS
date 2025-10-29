@@ -48,41 +48,43 @@
       <main id="contenido" class="wrapper main">
         <div class="content-container">
           <section class="card">
-                  <h2 id="arriba" class="card__title">¿Tienes dudas?</h2>
-          <p>Selecciona el tema (si has llegado desde una subpágina, ya estará marcado) y describe tu duda.
-          Evita información sensible; usa ejemplos anonimizados.</p>
-      <!-- Formulario para consultas -->
-      <form class="form" action="https://formsubmit.co/emiliomc@gmail.com" method="POST">
-        <!-- Configuración FormSubmit -->
-        <input type="hidden" name="_subject" value="Nueva consulta del sitio ITIL 4 SVS">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://sil3nci0.github.io/ITIL4_CVS/index.html">
-        <input type="hidden" name="_autoresponse" value="Gracias por tu consulta. Te responderemos pronto.">
-        <label for="tema">Tema</label>
-        <select id="tema" name="tema" class="select" required>
-          <option value="SVS">SVS</option>
-          <option value="Planificar">Planificar</option>
-          <option value="Compromiso">Compromiso</option>
-          <option value="Diseño">Diseño y transición</option>
-          <option value="Obtención">Obtener y construir</option>
-          <option value="Entrega">Entrega y soporte</option>
-          <option value="Mejorar">Mejorar</option>
-        </select>
+            <h2 id="arriba" class="card__title">¿Tienes dudas?</h2>
+            <p>Selecciona el tema (si has llegado desde una subpágina, ya estará marcado) y describe tu duda.
+            Evita información sensible; usa ejemplos anonimizados.</p>
+            <!-- Formulario para consultas -->
+            <form class="form" action="https://formsubmit.co/emiliomc@gmail.com" method="POST">
+              <!-- Configuración FormSubmit -->
+              <input type="hidden" name="_subject" value="Nueva consulta del sitio ITIL 4 SVS">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://sil3nci0.github.io/ITIL4_CVS/index.html">
+              <input type="hidden" name="_autoresponse" value="Gracias por tu consulta. Te responderemos pronto.">
+              
+              <label for="tema">Tema</label>
+              <select id="tema" name="tema" class="select" required>
+                <option value="">Selecciona un tema</option>
+                <option value="SVS">SVS</option>
+                <option value="Planificar">Planificar</option>
+                <option value="Compromiso">Compromiso</option>
+                <option value="Diseño">Diseño y transición</option>
+                <option value="Obtención">Obtener y construir</option>
+                <option value="Entrega">Entrega y soporte</option>
+                <option value="Mejorar">Mejorar</option>
+              </select>
 
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" class="input" type="text" required>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" class="input" type="text" placeholder="Tu nombre" required>
 
-        <label for="correo">Email</label>
-        <input id="correo" name="email" class="input" type="email" required>
+              <label for="correo">Email</label>
+              <input id="correo" name="email" class="input" type="email" placeholder="tu@email.com" required>
 
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" class="textarea" rows="6" required></textarea>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" class="textarea" rows="6" placeholder="Describe tu consulta o duda..." required></textarea>
 
-        <button class="button" type="submit">Enviar</button>
-        <p class="help">Alternativas: <code>https://formsubmit.co/emiliomc@gmail.com</code> (estático) o un backend PHP en tu hosting.</p>
-      </form>
-        </section>
-      </div>
+              <button class="button" type="submit">Enviar</button>
+              <p class="help">Alternativas: <code>https://formsubmit.co/emiliomc@gmail.com</code> (estático) o un backend PHP en tu hosting.</p>
+            </form>
+          </section>
+        </div>
     </main>
     </div>
   </div>
