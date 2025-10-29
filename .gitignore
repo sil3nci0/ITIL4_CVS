@@ -1,0 +1,16 @@
+# Archivos temporales de Windows
+Thumbs.db
+Desktop.ini
+
+# Archivos de sistema
+.DS_Store
+*.tmp
+
+# Archivos de desarrollo
+*.log
+*.cache
+
+# Carpetas innecesarias para el sitio web
+originales/
+*.bak
+*_limpio.html

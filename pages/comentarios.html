@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comentarios — Envía tu opinión (SVS)</title>
+  <meta name="description" content="Formulario de comentarios para el proyecto UD03 (SVS ITIL 4).">
+  <meta name="keywords" content="html5, css, formulario, LEDA, ASIR, UD03, Proyecto, ITIL4, SVS, comentarios">
+  <meta name="author" content="Emilio Martín Caro">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+  <a href="#cabecera" class="to-top" title="Ir arriba" aria-label="Ir arriba">↑</a>
+
+  <header id="cabecera" class="header">
+    <div class="wrapper">
+      <div class="brand"><h1 class="brand__title">Comentarios</h1></div>
+      <nav id="menu-principal" class="nav" aria-label="Principal">
+        <a class="nav__link" href="../index.html">Inicio</a>
+        <a class="nav__link" href="./planificar.html">Planificar</a>
+        <a class="nav__link" href="./compromiso.html">Compromiso o involucrar</a>
+        <a class="nav__link" href="./diseno-transicion.html">Diseño y transición</a>
+        <a class="nav__link" href="./obtencion-creacion.html">Obtener y construir</a>
+        <a class="nav__link" href="./entrega-soporte.html">Entrega y soporte</a>
+        <a class="nav__link" href="./mejorar.html">Mejorar</a>
+        <a class="nav__link" href="./consultas.html">Consultas</a>
+        <a class="nav__link nav__link--current" aria-current="page" href="./comentarios.html">Comentarios</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-container">
+    <div class="main-container">
+      <main id="contenido" class="wrapper main">
+        <div class="content-container">
+          <section class="card">
+            <h2 id="arriba" class="card__title">¿Qué te ha parecido?</h2>
+            <p>Comparte tus comentarios y sugerencias sobre el contenido del Sistema de Valor del Servicio (SVS) y la Cadena de Valor (CVS).
+            Tu opinión nos ayuda a mejorar el material educativo.</p>
+            <!-- Formulario para comentarios -->
+            <form class="form" action="https://formsubmit.co/emiliomc@gmail.com" method="POST">
+              <!-- Configuración FormSubmit -->
+              <input type="hidden" name="_subject" value="Nuevo comentario del sitio ITIL 4 SVS">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="../index.html">
+              
+              <label for="valoracion">Valoración general</label>
+              <select id="valoracion" name="valoracion" class="select" required>
+                <option value="">Selecciona una valoración</option>
+                <option value="Excelente">Excelente</option>
+                <option value="Muy bueno">Muy bueno</option>
+                <option value="Bueno">Bueno</option>
+                <option value="Regular">Regular</option>
+                <option value="Mejorable">Mejorable</option>
+              </select>
+
+              <label for="aspecto">Aspecto a comentar</label>
+              <select id="aspecto" name="aspecto" class="select" required>
+                <option value="">Selecciona un aspecto</option>
+                <option value="Contenido general">Contenido general</option>
+                <option value="Explicaciones">Claridad de las explicaciones</option>
+                <option value="Videos">Calidad de los videos</option>
+                <option value="Diseño web">Diseño y navegación</option>
+                <option value="Utilidad">Utilidad práctica</option>
+                <option value="Otros">Otros aspectos</option>
+              </select>
+
+              <label for="nombre">Nombre (opcional)</label>
+              <input id="nombre" name="nombre" class="input" type="text" placeholder="Tu nombre o alias">
+
+              <label for="correo">Email (opcional)</label>
+              <input id="correo" name="email" class="input" type="email" placeholder="tu@email.com">
+
+              <label for="comentario">Tu comentario</label>
+              <textarea id="comentario" name="comentario" class="textarea" rows="6" required placeholder="Comparte tu opinión, sugerencias o comentarios..."></textarea>
+
+              <button class="button" type="submit">Enviar comentario</button>
+              <p class="help">Los datos son opcionales excepto el comentario. Tu feedback es valioso para mejorar el contenido.</p>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer id="pie" class="footer">
+    <!-- Aunque no se requería he querído poner aclaraciones por temas de copyright -->
+    <!-- Lo mismo al haber usado IA generativa para ahorrar tiempo en generación de textos y formato de imagenes -->
+    <div class="wrapper">
+      <p class="footer-main">@2025 Emilio Martín</p>
+      <p class="footer-comment">Las imágenes y los videos son propiedad de sus titulares y se usan únicamente con fines educativos sin ánimo de lucro.</p>
+      <p class="footer-comment">Parte de los textos han sido generados con ayuda de IA</p>
+    </div>
+  </footer>
+</body>
+</html>

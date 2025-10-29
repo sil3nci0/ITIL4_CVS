@@ -1,0 +1,412 @@
+/* ==============================================================================================
+   UD03 · LEMA (ASIR) · Proyecto INICIACIÓN a SVS ITIL4
+   styles.css — estilo sobrio/material, homogéneo para todas las páginas.
+   En CSS usamos principalmente CLASES para poder reutilizar la plantilla en todas las páginas
+   los IDs del HTML sirven para anclas, accesibilidad e identificación única.
+   Se han reutilizado (con retoques) elementos de estilos previos de otros ejercicios.
+   ============================================================================================== */
+
+
+/* sección que hemos usado en otros ejercicios.Facilita aplicar los colores con el uso de las variables
+vamos a usar una paleta de colores basados en morados/rosas como la imagen del SVS de ITIL4 */
+:root{
+  --bg:#ffffff; --ink:#1f2937; --muted:#6b7280;
+  --card:rgba(161, 116, 153, 0.1); --border:rgba(161, 116, 153, 0.2); --shadow:0 2px 14px rgba(161, 116, 153, 0.15);
+  --accent:#a17499;           
+  --accent-weak:rgba(161, 116, 153, 0.1);
+  --radius:16px; --max:1000px; --space:clamp(12px,2.5vw,24px); /* max=1000px según requisitos */
+}
+
+/* Estilos base: A continuación se definen los estilos base para todo el sitio
+usamos box-sizing:border-box para facilitar el manejo de tamaños y paddings */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px} /* Añadido scroll-padding para header fijo, esto lo busqué antes sin éxito (ni tiempo) */
+body{
+  margin:0;
+  font:16px/1.6 system-ui, "Segoe UI", Roboto, Helvetica, Arial;
+  background:var(--bg);
+  color:var(--ink);
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(161, 116, 153, 0.35);border-radius:10px}
+
+/* Accesibilidad: salto directo al contenido visible sólo con foco */
+.visually-hidden-focusable{position:absolute;left:-9999px;top:auto}
+.visually-hidden-focusable:focus{
+  left:16px;top:16px;background:#fff;border:1px solid var(--border);
+  padding:8px 12px;border-radius:8px;z-index:999
+}
+
+/* Layout principal con anchura máxima de 1000px por estética*/
+.wrapper{max-width:1000px;margin:auto;padding:0 var(--space)}
+.main{padding:0} /* Simplificado para estructura anidada */
+.grid{display:grid;gap:var(--space)}
+.cols-2{grid-template-columns:1fr}
+@media (min-width:860px){.cols-2{grid-template-columns:2fr 1fr}}
+
+/* Layout estilo Wikipedia - texto dominante */
+.cols-wiki{grid-template-columns:1fr}
+@media (min-width:860px){.cols-wiki{grid-template-columns:3fr 1fr}}
+
+/* Estructura de contenedores anidados con límite máximo de anchura */
+.page-container {
+  background: white;
+  min-height: calc(100vh - 200px); /* Ajustado para header/footer externos */
+  border: 3px solid rgba(145, 33, 103, 0.8);
+  margin: 8px auto 16px auto; /* Centrado automático con margen inferior mayor */
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1000px; /* Límite máximo según requisitos de adaptabilidad */
+}
+
+.main-container {
+  background: rgba(205, 174, 206, 0.8);
+  margin: 12px;
+  border: 2px solid rgba(145, 33, 103, 0.8);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.content-container {
+  background: rgba(145, 33, 103, 0.2);
+  border: 1px solid rgba(145, 33, 103, 0.8);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.content-container:last-child {
+  margin-bottom: 0;
+}
+
+/* Cabecera + nav */
+.header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  z-index:20;
+}
+.brand{display:flex;align-items:center;gap:12px;padding:12px 0;justify-content:center}
+.brand__title{margin:0;font-size:28px;text-align:center} /* H1 más grande y centrado */
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:16px 24px;
+  justify-content:center;
+  background:rgba(161, 116, 153, 0.20);
+  border:1px solid rgba(145, 33, 103, 0.8);
+  border-radius:6px;
+  margin:16px 0
+}
+.nav__link{
+  padding:12px 20px;
+  min-width:120px;
+  border-radius:6px;
+  background:var(--accent-weak);
+  color:var(--accent);
+  font-weight:600;
+  text-align:center;
+  line-height:1.3;
+  white-space:normal;
+  word-wrap:break-word
+}
+.nav__link--current{background:var(--accent);color:#fff}
+
+/* Botón especial para "Cuestionario de dudas" */
+.btn-cuestionario{
+  padding:8px 12px;
+  border-radius:6px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+}
+.btn-cuestionario:hover{
+  filter:brightness(1.1);
+  text-decoration:none;
+}
+
+/* Tarjetas - simplificadas para estructura anidada */
+.card{
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+.card__title{margin-top:0;font-size:20px} /* H2 más pequeño que H1 */
+
+/* Espaciado entre elementos principales de listas anidadas */
+.card > ul > li {
+  margin-bottom: 20px; /* Espacio después de cada elemento principal */
+}
+
+.card > ul > li:last-child {
+  margin-bottom: 0; /* Sin espacio después del último elemento */
+}
+
+/* Estilo Wikipedia para imágenes en aside */
+.card img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 859px) {
+  .card img {
+    max-width: 200px;
+  }
+}
+
+/* Vídeo responsivo (16:9) */
+.video{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  box-shadow:var(--shadow);
+}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Botón fijo "Ir arriba" (siempre visible) */
+.to-top{
+  position:fixed;right:16px;bottom:16px;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:var(--accent);color:#fff;border:none;
+  box-shadow:var(--shadow);opacity:.95;cursor:pointer;
+}
+.to-top:hover{opacity:1}
+
+/* Mensajito para el botón "ir arriba" */
+.to-top::after {
+  content: "Ir arriba";
+  position: absolute;
+  bottom: 120%;
+  right: 50%;
+  transform: translateX(50%);
+  background: rgba(161, 116, 153, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none;
+}
+
+.to-top:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Pie */
+.footer{
+  border-top:1px solid var(--border);
+  padding:20px 0;
+  margin-top:40px;
+  color:var(--muted);
+}
+.footer small{display:block;font-style:italic}
+
+/* Formularios */
+.form{display:grid;gap:12px}
+.input,.select,.textarea,.button{
+  padding:10px 12px;border:1px solid var(--border);border-radius:10px;
+  background:#fff;font:inherit;
+}
+.button{background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+.button:hover{filter:brightness(1.05)}
+.help{color:var(--muted);font-size:.9rem}
+
+/* ==============================================================================================
+   DISEÑO RESPONSIVE Y ADAPTABILIDAD
+   Cumple requisitos: páginas adaptativas hasta 400px de anchura mínima
+   Anchura máxima del contenedor: 1000px
+   ============================================================================================== */
+
+/* Tablet y pantallas medianas (hasta 600px) */
+@media (max-width: 600px) {
+  /* Ajustes de tipografía para mejor legibilidad en pantallas pequeñas */
+  .brand__title {
+    font-size: 24px; /* H1 mantiene tamaño superior */
+    line-height: 1.3;
+  }
+  
+  .card__title {
+    font-size: 18px; /* H2 proporcionalmente menor */
+  }
+  
+  /* Navegación más compacta en móviles */
+  .nav {
+    gap: 6px;
+    padding: 0 0 8px;
+  }
+  
+  .nav__link {
+    padding: 10px 16px;
+    min-width:100px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  /* Contenedores más compactos para aprovechar espacio */
+  .content-container {
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  .main-container {
+    padding: 12px;
+    margin: 8px;
+  }
+  
+  /* Vídeos mantienen proporción en pantallas pequeñas */
+  .video {
+    border-radius: 8px;
+  }
+}
+
+/* Móviles pequeños (hasta 400px) - Cumple requisito de anchura mínima */
+@media (max-width: 400px) {
+  /* Tipografía optimizada para pantallas muy pequeñas */
+  .brand__title {
+    font-size: 20px; /* H1 sigue siendo mayor que H2 */
+    line-height: 1.2;
+  }
+  
+  .card__title {
+    font-size: 16px; /* H2 proporcionalmente menor */
+  }
+  
+  /* Márgenes mínimos para aprovechar todo el espacio disponible */
+  .page-container {
+    margin: 4px auto;
+    border-width: 2px; /* Borde más fino en móviles */
+  }
+  
+  .main-container {
+    padding: 8px;
+    margin: 4px;
+  }
+  
+  .content-container {
+    padding: 8px;
+    margin: 4px 0;
+  }
+  
+  /* Tarjetas más compactas */
+  .card {
+    padding: 8px;
+  }
+  
+  /* Botones optimizados para táctil en móviles */
+  .btn-cuestionario, .nav__link {
+    padding: 10px 14px; /* Área táctil mínima recomendada */
+    min-width:90px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+  
+  /* Grid siempre en una columna en móviles pequeños */
+  .cols-wiki {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Tooltip del botón scroll-to-top más pequeño */
+  .to-top::after {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+  
+  /* Footer más compacto */
+  .footer {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+  
+  /* Variables responsive - espaciado reducido en móviles */
+  :root {
+    --space: clamp(8px, 2vw, 16px);
+  }
+}
+
+/* ==============================================================================================
+   ORDEN DE ELEMENTOS EN MÓVILES - APLICADO A TODO EL SITIO
+   En pantallas pequeñas, mostramos la imagen arriba del texto para mejorar la visión en móviles
+   ============================================================================================== */
+
+/* Reordenación visual en pantallas pequeñas (solo móviles/tablets) */
+@media (max-width: 859px) {
+  .cols-wiki aside {
+    order: -1; /* La imagen (aside) aparece primero visualmente */
+    margin-bottom: 16px;
+    text-align: center; /* Centrar imágenes en móviles */
+  }
+  
+  .cols-wiki article {
+    order: 1; /* El texto (article) aparece después */
+  }
+  
+  /* Optimización específica para imágenes en móviles */
+  .cols-wiki aside img {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+
+/* ==============================================================================================
+   PÁGINA PRINCIPAL - LAYOUT ESPECIAL
+   La página principal tiene un layout vertical único con texto completo + imagen centrada
+   ============================================================================================== */
+
+/* Estructura especial para index.html - texto ancho + imagen centrada */
+.home-layout {
+  display: block; /* Layout vertical simple */
+  width: 100%;
+}
+
+.home-layout article {
+  width: 100%; /* El texto ocupa todo el ancho disponible */
+  margin-bottom: 24px;
+}
+
+.home-layout figure {
+  text-align: center; /* Centra la imagen y el caption */
+  margin: 24px 0;
+  display: block; /* Asegura que figure se comporte como bloque */
+}
+
+.home-layout figure img {
+  max-width: 100%; /* Se adapta al contenedor sin cortar */
+  width: auto; /* Mantiene proporción natural */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: block; /* Convierte img en bloque para centrado */
+  margin: 0 auto; /* Centrado horizontal explícito */
+  /* IMPORTANTE: A diferencia del resto de páginas que limitan las imágenes,
+     la página principal permite el tamaño real (400x250px) para mayor impacto visual.
+     Se identifica por CLASE (.home-layout) para aplicar comportamiento específico. */
+}
+
+.home-layout figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+}
